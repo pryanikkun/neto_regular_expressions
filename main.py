@@ -2,8 +2,8 @@ import csv
 import re
 
 with open("phonebook_raw.csv", encoding="utf-8") as f:
-  rows = csv.reader(f, delimiter=",")
-  contacts_list = list(rows)
+    rows = csv.reader(f, delimiter=",")
+    contacts_list = list(rows)
 
 
 def correct_fields_full_name():
@@ -42,7 +42,7 @@ def make_right_number():
 
 def add_to_contacts_dict():
     """ Добавление контакта в словарь (группировка по ФИО) """
-    full_name = f"{contact[0]} {contact[1]} {contact[2]}"
+    full_name = f"{contact[0]} {contact[1]}"
     if full_name not in contacts_dict.keys():
         contacts_dict[full_name] = {
             'lastname': contact[0],
@@ -85,5 +85,5 @@ add_to_new_contact_list()
 
 # запись обработанных данных в новый файл
 with open("phonebook.csv", "w", encoding="utf-8", newline='') as f:
-  datawriter = csv.writer(f, delimiter=',')
-  datawriter.writerows(new_contact_list)
+    datawriter = csv.writer(f, delimiter=',')
+    datawriter.writerows(new_contact_list)
